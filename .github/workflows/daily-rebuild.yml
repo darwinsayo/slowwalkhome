@@ -1,0 +1,14 @@
+name: Daily rebuild
+
+# Rebuilds the site every morning so future-dated posts go live on their date.
+on:
+  schedule:
+    - cron: "0 10 * * *"   # 10:00 UTC = 6am Eastern (5am in winter)
+  workflow_dispatch:        # adds a "Run workflow" button for testing
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ask Cloudflare to rebuild
+        run: curl -fsS -X POST "${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}"
