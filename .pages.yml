@@ -1,0 +1,79 @@
+media:
+  input: src/images/uploads
+  output: /images/uploads
+
+content:
+  - name: posts
+    label: Posts
+    type: collection
+    path: src/posts
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, date, category]
+      sort: [date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: author
+        label: Author
+        type: string
+        default: Emmett Walker
+      - name: category
+        label: Category
+        type: select
+        options:
+          creatable: true
+          values:
+            - Ordinary Days
+            - Faith & Doubt
+            - Family
+            - Work & Rest
+            - Nature
+            - Books & Ideas
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: summary
+        label: Summary (shown on the home page)
+        type: text
+      - name: draft
+        label: Draft (hide from site)
+        type: boolean
+        default: false
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: about
+    label: About page
+    type: file
+    path: src/about.md
+    fields:
+      - name: title
+        type: string
+        hidden: true
+      - name: kicker
+        type: string
+        hidden: true
+      - name: heading
+        label: Heading
+        type: string
+      - name: layout
+        type: string
+        hidden: true
+      - name: permalink
+        type: string
+        hidden: true
+      - name: body
+        label: Body
+        type: rich-text
