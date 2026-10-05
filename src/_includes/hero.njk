@@ -1,0 +1,31 @@
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="hero-eyebrow">A journal by {{ site.author }}</p>
+      <h1>Reflections at a walking pace.</h1>
+      <p class="hero-lede">Notes from the road between things: faith and doubt, work and rest, a full house and the quiet after. Written slowly, meant to be read the same way.</p>
+      <div class="hero-actions">
+        {% if collections.posts.length %}<a class="btn" href="{{ collections.posts[0].url }}">Read the latest</a>{% endif %}
+        <a class="btn-link" href="/about/">About Emmett &rarr;</a>
+      </div>
+    </div>
+    <svg class="hero-art" viewBox="0 0 400 320" role="img" aria-label="A winding path over rolling hills toward a small house at sunset">
+      <rect class="sky" width="400" height="320"/>
+      <circle class="sun" cx="292" cy="112" r="38"/>
+      <path class="hill-far" d="M0 190 C70 150 130 160 200 176 C270 192 330 150 400 162 L400 320 L0 320 Z"/>
+      <path class="hill-mid" d="M0 228 C90 196 170 212 240 222 C310 232 360 206 400 210 L400 320 L0 320 Z"/>
+      <path class="hill-near" d="M0 268 C110 246 230 262 400 250 L400 320 L0 320 Z"/>
+      <path class="road" d="M206 192 C214 206 186 214 196 228 C208 246 248 252 236 278 C226 298 186 306 170 320 L262 320 C276 300 304 284 290 258 C278 236 236 232 226 218 C218 206 230 200 214 192 Z"/>
+      <g class="house">
+        <rect x="196" y="171" width="20" height="14"/>
+        <path d="M193 172 L206 161 L219 172 Z"/>
+        <rect class="window" x="203" y="176" width="5" height="5"/>
+      </g>
+      <g class="trees">
+        <path d="M92 214 l9 -26 l9 26 Z"/><rect x="99" y="214" width="4" height="7"/>
+        <path d="M110 218 l7 -20 l7 20 Z"/><rect x="115" y="218" width="4" height="6"/>
+        <path d="M318 206 l8 -22 l8 22 Z"/><rect x="324" y="206" width="4" height="6"/>
+      </g>
+    </svg>
+  </div>
+</section>

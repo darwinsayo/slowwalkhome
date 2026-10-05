@@ -1,0 +1,30 @@
+---
+layout: base.njk
+---
+<article class="post">
+  <header class="post-header">
+    {% if category %}<p class="kicker">{{ category }}</p>{% endif %}
+    <h1>{{ title }}</h1>
+    <p class="byline">
+      <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time>
+      · {{ author or site.author }}
+    </p>
+  </header>
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+  {% if tags %}
+  <ul class="tags" aria-label="Tags">
+    {% for t in tags %}{% if t != "posts" %}<li>{{ t }}</li>{% endif %}{% endfor %}
+  </ul>
+  {% endif %}
+  {%- set older = collections.posts | getNextCollectionItem(page) %}
+  {%- set newer = collections.posts | getPreviousCollectionItem(page) %}
+  {% if older or newer %}
+  <nav class="post-nav" aria-label="More reflections">
+    {% if older %}<a class="older" href="{{ older.url }}"><span>&larr; Older</span>{{ older.data.title }}</a>{% else %}<span></span>{% endif %}
+    {% if newer %}<a class="newer" href="{{ newer.url }}"><span>Newer &rarr;</span>{{ newer.data.title }}</a>{% endif %}
+  </nav>
+  {% endif %}
+  <p class="back"><a href="/">&larr; Back to the journal</a></p>
+</article>
