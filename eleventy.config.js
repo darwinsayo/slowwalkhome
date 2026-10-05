@@ -18,7 +18,7 @@ export default function (eleventyConfig) {
   // Newest first, drafts hidden
   eleventyConfig.addCollection("posts", (api) =>
     api.getFilteredByGlob("src/posts/*.md")
-      .filter((p) => !p.data.draft)
+     .filter((p) => !p.data.draft && p.date <= new Date())
       .sort((a, b) => b.date - a.date)
   );
 
