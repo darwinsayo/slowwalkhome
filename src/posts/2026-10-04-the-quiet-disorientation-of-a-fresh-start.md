@@ -1,6 +1,6 @@
 ---
 title: The Quiet Disorientation of a Fresh Start
-date: 2026-10-01
+date: 2026-09-23
 author: Emmett Walker
 category: Ordinary Days
 summary: Something I'd dreaded for years finally got settled. I thought I'd feel
